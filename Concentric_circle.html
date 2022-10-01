@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 1: Circles</title>
+    <style>
+      #center {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #circle1 {
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background-color: brown;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #circle2 {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #circle3 {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: darkgoldenrod;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="center">
+      <div id="circle1">
+        <div id="circle2">
+          <div id="circle3"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+        document.querySelector("#circle1").addEventListener("click", () => {
+            alert("circle 1");
+        });
+        document.querySelector("#circle2").addEventListener("click", (e) => {
+            alert("circle 2");
+            e.stopPropagation();
+        });
+        document.querySelector("#circle3").addEventListener("click", (e) => {
+            alert("circle 3");
+            e.stopPropagation();
+        });
+    </script>
+  </body>
+</html>

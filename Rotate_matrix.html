@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 2: Matrix</title>
+    <style>
+      #center {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      table,
+      th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        font-size: 3rem;
+      }
+      table {
+        width: 100%;
+        height: 50%;
+      }
+      #mid {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="center">
+      <table>
+        <tr>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+        </tr>
+        <tr>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>10</th>
+        </tr>
+        <tr>
+          <th>11</th>
+          <th>12</th>
+          <th id="mid">13</th>
+          <th>14</th>
+          <th>15</th>
+        </tr>
+        <tr>
+          <th>16</th>
+          <th>17</th>
+          <th>18</th>
+          <th>19</th>
+          <th>20</th>
+        </tr>
+        <tr>
+          <th>21</th>
+          <th>22</th>
+          <th>23</th>
+          <th>24</th>
+          <th>25</th>
+        </tr>
+      </table>
+    </div>
+    <script>
+      document.querySelector("#mid").addEventListener("click", () => {
+        let rowArray = document.querySelectorAll("tr");
+        let a = [],
+          ind = 0;
+        let arr = document.querySelectorAll("th");
+        for (let i = 0; i < rowArray.length; i++) {
+          a.push([]);
+          for (let j = 0; j < rowArray.length; j++)
+            a[i][j] = arr[ind++].innerText;
+        }
+        for (let o = 0; o < rowArray.length; o++) {
+          let i = o,
+            j = o,
+            l = rowArray.length - o,
+            last = a[i][j];
+          for (; i + 1 < l; i++) a[i][j] = a[i + 1][j];
+          for (; j + 1 < l; j++) a[i][j] = a[i][j + 1];
+          for (; i > o; i--) a[i][j] = a[i - 1][j];
+          for (; j > o; j--) a[i][j] = j - 1 === o ? last : a[i][j - 1];
+        }
+        ind = 0;
+        for (let i = 0; i < rowArray.length; i++) {
+          for (let j = 0; j < rowArray.length; j++)
+            arr[ind++].innerHTML = a[i][j];
+        }
+      });
+    </script>
+  </body>
+</html>
