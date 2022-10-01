@@ -1,0 +1,25 @@
+<section class="calculator">
+  <div class="input">
+    <h2>Select Input Currency:</h2>
+    <select class="dropdown" [(ngModel)]="input.name">
+      <option value="INR">INR</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="JPY">JPY</option>
+      <option value="GBP">GBP</option>
+    </select>
+    <input type="number" [(ngModel)]="input.value" required />
+  </div>
+  <div class="output">
+    <h2>Select Output Currency:</h2>
+    <select class="dropdown" [(ngModel)]="output.name">
+        <option value="INR">INR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="JPY">JPY</option>
+        <option value="GBP">GBP</option>
+    </select>
+    <input type="number" [(ngModel)]="output.value" disabled>
+  </div>
+  <button (click) = "calc()">Calculate</button>
+</section>
