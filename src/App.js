@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {useRef} from 'react';
+import Show_data from "./Show_Data/Show_data";
+import Button from "@mui/material/Button";
 
 function App() {
+  const childRef = useRef();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="button">
+        <span><Button variant="outlined" onClick={() => childRef.current.sortByName()}>Sort By Name</Button></span>
+        <span><Button variant="outlined" onClick={() => childRef.current.sortByAge()}>Sort By Age</Button></span>
+      </div>
+      <Show_data ref={childRef}/>
     </div>
   );
 }
