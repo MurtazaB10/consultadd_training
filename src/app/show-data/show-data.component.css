@@ -1,8 +1,11 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+table {
+  width: 50%;
+}
+
 div {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
 }
